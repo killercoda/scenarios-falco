@@ -10,7 +10,7 @@ The task is to create a Falco Rule to alert of this behaviour.
 
 
 
-## Check if Falco is installed as standalone binary
+### Check if Falco is installed as standalone binary
 ```plain
 which falco
 falco version
@@ -23,13 +23,17 @@ falco -u # wait at least 1 minute and exit the command
 
 <br>
 
-## In a new file called "filesystem-rule.yaml" inside /etc/falco/rules.d/, create the list of directories that we want to check, for this example only include /var/falco-test
+## Create the list of directories that we want to check
+```plain
+touch /etc/falco/rules.d/filesystem-rule.yaml
+```{{exec}}
+
 ```yaml
 - list: file_operation_paths
   items: [/var/falco-test]
 ```
 
-## Add the rule to check any container running
+### Add the rule to check any container running
 ```yaml
 - rule: Get containers accesing /var/falco-test
   desc: An attempt to access /var/falco-test directory
@@ -40,7 +44,7 @@ falco -u # wait at least 1 minute and exit the command
   source: syscall
 ```
 
-## Run Falco and see if the Rule has any effect
+### Run Falco and see if the Rule has any effect
 ```plain
 falco -u
 ```{{exec}}

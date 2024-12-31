@@ -14,9 +14,16 @@
     ],
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "init.sh", "target": "/ks", "chmod": "+x"},
+        {"file": "k8s.sh", "target": "/ks", "chmod": "+x"},
+        {"file": "wait-init.sh", "target": "/ks", "chmod": "+x"}
+      ]
     }
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "kubernetes-cks-1node"
   }
 }
