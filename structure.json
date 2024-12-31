@@ -1,6 +1,7 @@
 {
   "items": [
     { "path": "install" },
-    { "path": "change-rule" }
+    { "path": "change-rule" },
+    { "path": "filesystem-rule" }
   ]
 }
