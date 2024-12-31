@@ -3,7 +3,10 @@
   "description": "How to create a Rule to check unauthorized access to the filesystem",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "background": "init/background.sh",
+      "foreground": "init/foreground.sh",
+      "credits": ""
     },
     "steps": [
       {
