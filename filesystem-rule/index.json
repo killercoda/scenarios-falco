@@ -10,7 +10,7 @@
         "title": "Create a Rule to check access to directory",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
-      },
+      }
     ],
     "finish": {
       "text": "finish.md"
