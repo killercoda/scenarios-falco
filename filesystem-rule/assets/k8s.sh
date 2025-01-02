@@ -15,6 +15,10 @@ done
 
 mkdir /var/falco-test
 
+cat > /var/falco-test/h.txt <<EOF
+TEST!!!
+EOF
+
 cat > ./deployment.yaml <<EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -36,13 +40,16 @@ spec:
         - name: files
           hostPath:
             path: /var/falco-test
-            readOnly: true
       containers:
-      - name: busybox
+      - name: b01
+        image: busybox
+        command: ["/bin/sh", "-c", "while true; do devmem 0x12345678; sleep 10s; done"]
+      - name: b02
         image: busybox
         volumeMounts:
           - name: files
             mountPath: /var/falco-test
+            readOnly: true
         command: ["/bin/sh", "-c", "while true; do cat /var/falco-test/h.txt; sleep 10s; done"]
 EOF
 

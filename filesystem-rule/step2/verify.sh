@@ -13,7 +13,7 @@ set -e # exit once any command fails
 {
     date
 
-    cat /var/log/syslog | grep Unexpected
+    cat /var/log/syslog | grep File
 
 } >> ${LOGFILE} 2>&1
 

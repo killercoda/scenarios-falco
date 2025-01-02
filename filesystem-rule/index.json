@@ -1,6 +1,6 @@
 {
   "title": "Filesystem Rule",
-  "description": "How to create a Rule to check unauthorized access to the filesystem",
+  "description": "How to create a Rule to check processes executed on priviliged containers",
   "details": {
     "intro": {
       "text": "intro.md",
@@ -10,9 +10,14 @@
     },
     "steps": [
       {
-        "title": "Create a Rule to check access to directory",
+        "title": "Create a Rule to check memory access",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Create a Rule to check filesystem access",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
       }
     ],
     "finish": {

@@ -13,7 +13,7 @@ The task is to create a Falco Rule to alert of this behaviour.
 ### Check if Falco is installed as standalone binary
 ```plain
 which falco
-falco version
+falco --version
 ```{{exec}}
 
 ## Check if nothing else is running/triggering Rules at the moment
@@ -25,7 +25,7 @@ falco -u # wait at least 1 minute and exit the command
 
 ## Create the list of directories that we want to check
 ```plain
-touch /etc/falco/rules.d/filesystem-rule.yaml
+touch /etc/falco/rules.d/custom-rule.yaml
 ```{{exec}}
 
 ```yaml
@@ -33,15 +33,13 @@ touch /etc/falco/rules.d/filesystem-rule.yaml
   items: [/var/falco-test]
 ```
 
-### Add the rule to check any container running
+### Add the rule to check any container running with access to memory addresses
 ```yaml
-- rule: Get containers accesing /var/falco-test
-  desc: An attempt to access /var/falco-test directory
-  condition: (evt.type in (open,openat,openat2)) and fd.name startswith file_operation_paths
-  output: >
-    Some File related operation on Path (evt.type=%evt.type path=%fs.path.name source=%fs.path.source container-id=%container.id container-name=%container.name)
-  priority: WARN
-  source: syscall
+- rule: access_memory
+  desc: A process is trying to access prohibited directories
+  condition: evt.type = execve and evt.dir = < and (proc.name = devmem or proc.name = mmap or proc.name= mmap2)
+  output: Unexpected process trying to access memory on host (command=%proc.cmdline container.id=%container.id container.name=%container.name)
+  priority: WARNING
 ```
 
 ### Run Falco and see if the Rule has any effect

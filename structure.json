@@ -2,6 +2,6 @@
   "items": [
     { "path": "install" },
     { "path": "change-rule" },
-    { "path": "filesystem-rule" }
+    { "path": "check-process-rule" }
   ]
 }
