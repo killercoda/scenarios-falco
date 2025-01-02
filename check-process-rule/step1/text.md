@@ -18,7 +18,7 @@ falco --version
 
 ## Check if nothing else is running/triggering Rules at the moment
 ```plain
-falco -u # wait at least 1 minute and exit the command
+falco -U # wait at least 1 minute and exit the command
 ```{{exec}}
 
 <br>
