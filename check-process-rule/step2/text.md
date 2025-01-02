@@ -33,5 +33,5 @@ NOTE: Remember that we're using /etc/falco/rules.d/custom-rule.yaml
 
 ### Run Falco and see if the Rule has any effect
 ```plain
-falco -u
+falco -U
 ```{{exec}}
