@@ -1,0 +1,37 @@
+{
+  "title": "Multiple Events Rule",
+  "description": "How to create a Rule to check different processes executed on containers",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "init/background.sh",
+      "foreground": "init/foreground.sh",
+      "credits": ""
+    },
+    "steps": [
+      {
+        "title": "Create a Rule to check memory access",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Create a Rule to check filesystem access",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "init.sh", "target": "/ks", "chmod": "+x"},
+        {"file": "k8s.sh", "target": "/ks", "chmod": "+x"},
+        {"file": "wait-init.sh", "target": "/ks", "chmod": "+x"}
+      ]
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-cks-1node"
+  }
+}
