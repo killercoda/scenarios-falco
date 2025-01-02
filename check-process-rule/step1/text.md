@@ -5,7 +5,7 @@ https://falco.org/docs
 
 <br>
 
-In this environment, you have a Kubernetes cluster with a Pod named "test" which b02 container is trying to access memory.
+In this environment, you have a Kubernetes cluster with a Pod named "test" with a container "b01" that is trying to access memory.
 The task is to create a Falco Rule to alert of this behaviour.
 
 
