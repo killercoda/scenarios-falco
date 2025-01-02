@@ -1,6 +1,6 @@
 {
-  "title": "Filesystem Rule",
-  "description": "How to create a Rule to check processes executed on priviliged containers",
+  "title": "Multiple Events Rule",
+  "description": "How to create a Rule to check different processes executed on containers",
   "details": {
     "intro": {
       "text": "intro.md",
