@@ -5,7 +5,7 @@ https://falco.org/docs
 
 <br>
 
-In this environment, you have a Kubernetes cluster with a Pod named "test" with a volume mounted on hostPath /var/falco-test.
+In this environment, you have a Kubernetes cluster with a Pod named "test" which b02 container is trying to access memory.
 The task is to create a Falco Rule to alert of this behaviour.
 
 
@@ -23,15 +23,9 @@ falco -u # wait at least 1 minute and exit the command
 
 <br>
 
-## Create the list of directories that we want to check
 ```plain
 touch /etc/falco/rules.d/custom-rule.yaml
 ```{{exec}}
-
-```yaml
-- list: file_operation_paths
-  items: [/var/falco-test]
-```
 
 ### Add the rule to check any container running with access to memory addresses
 ```yaml
